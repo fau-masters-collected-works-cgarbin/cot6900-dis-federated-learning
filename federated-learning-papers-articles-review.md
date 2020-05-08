@@ -394,7 +394,7 @@ the other good parts of the paper.
          train each independently on a different subset of the data (as
          described above), we find that naive parameter averaging works
          surprisingly well".
-           -  ![](media/image9.png)
+           -  ![](images/image9.png)
        -  Experimental results with MNIST and a DNN:
            -  Goal: measure the number of communication rounds to achieve a
          predefined accuracy.
@@ -554,17 +554,17 @@ The practical problems addressed are:
 
 The formal definition of the problem to be solved:
 
-![](media/image4.png)
+![](images/image4.png)
 
 Where f(w) is the same function we are trying to minimize in a
 traditional machine learning algorithm, i.e. it is the loss function:
 
-![](media/image18.png)
+![](images/image18.png)
 
 The federated optimization algorithm is based on the SVRG algorithm
 (from one of the authors, discussed in a cited paper).
 
-![](media/image13.png)
+![](images/image13.png)
 
 The SVRG algorithm fails with sparse data. To make it work, it is
 modified in these ways:
@@ -596,7 +596,7 @@ the training unbalanced and non-IID.
 The green and red lines in the graph below demonstrate how much faster
 the proposed algorithm converges, compared to other algorithms.
 
-![](media/image12.png)
+![](images/image12.png)
 
 # (7) Federated Optimization: Distributed Machine Learning for On-Device Intelligence
 
@@ -643,18 +643,18 @@ topic. Besides reviewing the algorithms, it proposes a method to measure
 the efficiency of distribution optimization. The method starts by
 defining the behavior in a single machine:
 
-![](media/image15.png)
+![](images/image15.png)
 
 Then it extends the model for distributed environments:
 
-![](media/image6.png)
+![](images/image6.png)
 
 With this framework in place, the paper frames the problem of **existing
 stochastic algorithms** as "doing very large number
-![](media/image7.png)of very fast ![](media/image11.png) iterations. As
+![](images/image7.png)of very fast ![](images/image11.png) iterations. As
 a result, even relatively small *c* can cause the practical performance
 of those algorithms drop down dramatically, because
-![](media/image19.png)."
+![](images/image19.png)."
 
 This problem with stochastic algorithms motivated the creation of
 **distributed algorithms**. The paper reviews several distributed
@@ -665,7 +665,7 @@ current state of distributed algorithms, the paper moves on to a class
 of algorithms it calls **communication-efficient algorithms**. Using its
 method to measure the efficiency of such algorithms, it describes this
 class of algorithms as "... one should design algorithms with high
-![](media/image17.png), in order to make the cost of communcation
+![](images/image17.png), in order to make the cost of communcation
 *(sic)* *c* negligible."
 
 Finally, after reviewing the different classes of algorithms and their
@@ -699,7 +699,7 @@ The final version of the algorithm is shown below. The authors named it
 "federated stochastic variance reduced gradient" (FSVRG), for one the
 base algorithm used, SVRG.
 
-![](media/image1.png)
+![](images/image1.png)
 
 The experiment used a logistic regression model to predict if posts by
 an author in a social media network would receive at least one comment.
@@ -710,7 +710,7 @@ distribution of the dataset across the nodes (88% of the features appear
 in fewer than 1,000 nodes, out of 10,000 nodes). The figure below is
 similar to the one from the previous paper.
 
-![](media/image10.png)
+![](images/image10.png)
 
 The authors suggest the following items for future research and
 usability improvements:
@@ -785,7 +785,7 @@ its (global) state based on these updates.
 
 The process is illustrated in the following figure.
 
-![](media/image21.png)
+![](images/image21.png)
 
 The protocol has these phases (note its synchronicity by design):
 
@@ -922,12 +922,12 @@ information that concentrate on those topics.
 
 The following picture shows the areas covered in the paper.
 
-![](media/image14.png)
+![](images/image14.png)
 
 The following table shows the papers reviewed and what topics they
 cover.
 
-![](media/image8.png)
+![](images/image8.png)
 
 ## Background and fundamentals
 
@@ -942,11 +942,11 @@ A conceptual model for federated learning:
      the local models and sends an updated global mode back to the
      devices.
 
-![](media/image16.png)
+![](images/image16.png)
 
 The same steps, described as an algorithm:
 
-![](media/image5.png)
+![](images/image5.png)
 
 Federated learning presents a statistical challenge to the model
 training process. The distribution of samples in the devices cannot be
@@ -1026,7 +1026,7 @@ Model compression techniques:
 
 The following table summarizes the compression techniques:
 
-![](media/image3.png)
+![](images/image3.png)
 
 Of all compression techniques, quantization seems more promising: "On
 the other hand, quantization with Kashin’s representation can achieve
@@ -1077,7 +1077,7 @@ most commonly used form.
 
 ### Summary and lessons learned for resource allocation
 
-![](media/image2.png)
+![](images/image2.png)
 
 ## Privacy and security issues
 
@@ -1136,7 +1136,7 @@ far is blockchain-based, which brings its own set of issues.
 
 Summary of attacks and mitigations:
 
-> ![](media/image20.png)
+> ![](images/image20.png)
 
 ## Applications of federated learning for mobile edge computing
 
