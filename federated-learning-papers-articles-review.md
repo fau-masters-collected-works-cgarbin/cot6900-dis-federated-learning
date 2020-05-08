@@ -1,6 +1,3 @@
-**Federated learning**
-**Summary of selected papers and articles**
-
 # Introduction
 
 This question summarizes federated learning papers reviewed for this class.
@@ -374,53 +371,53 @@ the other good parts of the paper.
      parallelism over clients is used."
   -  The **FederatedAveraging** **Algorithm** - this is a key concept
      of this paper
-           -  **FederatedSGD** (FedSGD): "each client locally takes one step
+        -  **FederatedSGD** (FedSGD): "each client locally takes one step
          of gradient descent on the current model using its local data,
          and the server then takes a **weighted average** of the
          resulting models."
-           -  **FederatedAveraging** (FedAvg): "Once the algorithm is
+        -  **FederatedAveraging** (FedAvg): "Once the algorithm is
          written this way, we can add more
-           -  computation to each client by iterating the local update
+        -  computation to each client by iterating the local update
          multiple times before the averaging step."
-           -  "The amount of computation is controlled by **three key
+        -  "The amount of computation is controlled by **three key
          parameters: C, the fraction of clients that perform
          computation on each round; E, the number of training passes
          each client makes over its local dataset on each round; and B,
          the local minibatch size used for the client updates**."
-           -  Important problem with the weighted average: **if the local
+        -  Important problem with the weighted average: **if the local
          models start from different initial conditions, averaging them
          produces bad results in practice**. However, if we "start two
          models from the same random initialization and then again
          train each independently on a different subset of the data (as
          described above), we find that naive parameter averaging works
          surprisingly well".
-           -  ![](images/image9.png)
-       -  Experimental results with MNIST and a DNN:
-           -  Goal: measure the number of communication rounds to achieve a
+        -  ![](images/image9.png)
+  -  Experimental results with MNIST and a DNN:
+        -  Goal: measure the number of communication rounds to achieve a
          predefined accuracy.
-           -  Using about 10% of the clients (C=0.1) and batch size 10
+        -  Using about 10% of the clients (C=0.1) and batch size 10
          (B=10) significantly reduces the number of communication
          rounds. Based in this initial experiment, C was set to 0.1 for
          the other experiments in this section.
-           -  With C set to C=0.1, increasing the number of computations
+        -  With C set to C=0.1, increasing the number of computations
          performed in the clients (i.e. increasing the number of local
          SGD updates) by reducing B or increasing E (epochs)
          dramatically decreases communication rounds. It requires
          between 4x and 8x fewer rounds to achieve the desired
          accuracy, compared to C=0 (one client at a time, i.e. without
          federation).
-           -  The improvement is noticeable even in a pathological non-IID
+        -  The improvement is noticeable even in a pathological non-IID
          case, where devices had only one of the MNIST digits to train
          on. In this case, the improvement is not as large as the IID
          case, but it is still significant.
-           -  There is a risk of over-optimization. More local training
+        -  There is a risk of over-optimization. More local training
          resulted in smaller improvements or even divergence. To
          counteract that, later optimization cycles should increase B
          or decrease E to reduce the number of local computations (and
          thus decrease over-optimization).
-           -  Experimental results with CIFAR-10 + CNN and text corpus +
+        -  Experimental results with CIFAR-10 + CNN and text corpus +
          LTSM show a similar reduction in communication rounds.
-       -  Future work: investigate stronger privacy guarantees with
+  -  Future work: investigate stronger privacy guarantees with
      differential privacy or secure multi-party computation.
 
 # (4) Federated Learning: Collaborative Machine Learning without Centralized Training Data
@@ -467,60 +464,65 @@ communication cost as a limiting factor.**"
 
 # (5) Wikipedia's Federated learning
 
-  -  A more general definition of federated learning, covering both the
-     decentralization part, as well as the non-IID part (sometimes
-     missed in the discussions): "\[A\] machine learning technique that
-     trains an algorithm across multiple decentralized edge devices or
-     servers holding local data samples, without exchanging their data
-     samples. This approach stands in contrast to traditional
-     centralized machine learning techniques where all data samples are
-     uploaded to one server, as well as to more classical decentralized
-     approaches which assume that local data samples are identically
-     distributed."
+A more general definition of federated learning, covering both the
+decentralization part, as well as the non-IID part (sometimes
+missed in the discussions): "\[A\] machine learning technique that
+trains an algorithm across multiple decentralized edge devices or
+servers holding local data samples, without exchanging their data
+samples. This approach stands in contrast to traditional
+centralized machine learning techniques where all data samples are
+uploaded to one server, as well as to more classical decentralized
+approaches which assume that local data samples are identically
+distributed."
 
-  -  Hyper-parameters
-      -  Network topology: central server vs. peer-to-peer.
-      -  Federated learning parameters:
-          -  T - number of rounds
-          -  K - number of nodes (devices)
-          -  C - fraction of nodes (devices) used
-          -  B - local batch size
-      -  Other parameters
-          -  N - number of local training iteration before polling
-             (this seems to be the same as E in the original paper,
-             local number of epochs)
-          -  η - local learning rate
-  -  Summary of the original paper, showing it went from federated SGD
-     to federated learning:
-      -  "Federated Stochastic Gradient Descent (**FedSGD**) - Deep
-         learning training mainly relies on variants of stochastic
-         gradient descent, where gradients are computed on a random
-         subset of the total dataset and then used to make one step of
-         the gradient descent. Federated stochastic gradient
-         descent\[6\] is the direct transposition of this algorithm to
-         the federated setting, but by using a random fraction C of the
-         nodes and using all the data on this node. The gradients are
-         averaged by the server proportionally to the number of
-         training samples on each node, and used to make a gradient
-         descent step."
-      -  "Federative averaging - Federative averaging (**FedAvg**)\[7\]
-         is a generalization of FedSGD, which **allows local nodes to
-         perform more than one batch update on local data and exchanges
-         the updated weights rather than the gradients**. The rationale
-         behind this generalization is that in FedSGD, if **all local
-         nodes start from the same initialization**, averaging the
-         gradients is strictly equivalent to averaging the weights
-         themselves. Further, averaging tuned weights coming from the
-         same initialization does not necessarily hurt the resulting
-         averaged model's performance."
-  -  Properties of federated learning:
-      -  Privacy by design: data remains local, although this can be
-         weakened with some specific attacks.
-      -  Personalization: fine-tune a global mode with local data (a
-         transfer learn technique of sorts).
-      -  Legal compliance: complies with "data minimization" and GDPR
-         guidelines, allowing institutions to cooperate without
-         exchanging data.
+Hyper-parameters
+
+-  Network topology: central server vs. peer-to-peer.
+-  Federated learning parameters:
+    -  T - number of rounds
+    -  K - number of nodes (devices)
+    -  C - fraction of nodes (devices) used
+    -  B - local batch size
+-  Other parameters
+    -  N - number of local training iteration before polling
+        (this seems to be the same as E in the original paper,
+        local number of epochs)
+    -  η - local learning rate
+
+Summary of the original paper, showing it went from federated SGD
+to federated learning:
+
+-  "Federated Stochastic Gradient Descent (**FedSGD**) - Deep
+    learning training mainly relies on variants of stochastic
+    gradient descent, where gradients are computed on a random
+    subset of the total dataset and then used to make one step of
+    the gradient descent. Federated stochastic gradient
+    descent\[6\] is the direct transposition of this algorithm to
+    the federated setting, but by using a random fraction C of the
+    nodes and using all the data on this node. The gradients are
+    averaged by the server proportionally to the number of
+    training samples on each node, and used to make a gradient
+    descent step."
+-  "Federative averaging - Federative averaging (**FedAvg**)\[7\]
+    is a generalization of FedSGD, which **allows local nodes to
+    perform more than one batch update on local data and exchanges
+    the updated weights rather than the gradients**. The rationale
+    behind this generalization is that in FedSGD, if **all local
+    nodes start from the same initialization**, averaging the
+    gradients is strictly equivalent to averaging the weights
+    themselves. Further, averaging tuned weights coming from the
+    same initialization does not necessarily hurt the resulting
+    averaged model's performance."
+
+Properties of federated learning:
+
+-  Privacy by design: data remains local, although this can be
+    weakened with some specific attacks.
+-  Personalization: fine-tune a global mode with local data (a
+    transfer learn technique of sorts).
+-  Legal compliance: complies with "data minimization" and GDPR
+    guidelines, allowing institutions to cooperate without
+    exchanging data.
 
 # (6) Federated Optimization: Distributed Optimization Beyond the Datacenter
 
