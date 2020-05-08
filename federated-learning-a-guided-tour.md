@@ -68,12 +68,11 @@ Where federated learning came from, seminal papers and articles
 
 # Where federated learning is today
 
-1. "[Federated Learning in Mobile Edge
-  Networks: A Comprehensive
+"[Federated Learning in Mobile Edge Networks: A Comprehensive
   Survey](https://arxiv.org/abs/1909.11875)", a recent paper,
   submitted in September of 2019 and revised in February of 2020. It
   has a well-written summary of how federated learning works, its
-  applications, and challenges. I
+  applications, and challenges.
 
 # Try it out
 
