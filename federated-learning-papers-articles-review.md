@@ -154,6 +154,11 @@ number of years.
 *Table 1 - Authors, publication data, revision date and Google scholar
 citations for the papers.*
 
+- \[1\]  From Google scholar
+- \[2\]  From the [web archive](https://web.archive.org/web/20190201000000*/https://federated.withgoogle.com/)
+- \[3\] From the page history
+
+
 The following sections summarize each item in the order listed above.
 This order builds from the basics to more advanced topics.
 
@@ -1188,10 +1193,3 @@ for mobile edge network optimizations:
      FL, but asynchronous FL models real-life situations better (fast
      vs. slow devices, joining training round already in progress,
      etc.). New algorithms are emerging for asynchronous FL.
-
-## References
-
-1.  From Google scholar
-2.  From the web archive
-    [https://web.archive.org/web/20190201000000\*/https://federated.withgoogle.com/](https://web.archive.org/web/20190201000000*/https://federated.withgoogle.com/)
-3.  From the page history
