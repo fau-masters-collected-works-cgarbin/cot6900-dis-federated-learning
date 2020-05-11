@@ -3,7 +3,7 @@
 Code from the tutorial at https://www.tensorflow.org/federated/tutorials/federated_learning_for_image_classification, # noqa
 adapted to run as a stand-alone Python program.
 
-Thsee are the parts that are ommon to the standard and customized TFF examples.
+These are the parts that are common to the standard and customized TFF examples.
 
 Requires Python 3
 '''
