@@ -1,6 +1,6 @@
 # Google's federated image classification example
 
-This is [Google's federated image classification example[(https://www.tensorflow.org/federated/tutorials/federated_learning_for_image_classification)
+This is [Google's federated image classification example](https://www.tensorflow.org/federated/tutorials/federated_learning_for_image_classification)
 as a stand-alone Python program.
 
 To run the code:
