@@ -1,4 +1,4 @@
-# COT6900 Directed Independent Study
+# Federated learning literature review
 
 Under the supervision of [Dr. Marques](https://www.ogemarques.com/).
 
